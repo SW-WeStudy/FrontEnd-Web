@@ -110,13 +110,13 @@ const Courses = (props) => {
     }])
 
     useEffect(() => {
-        if(Notification.permission != "granted"){
-           Notification.requestPermission((e) => {
-               if(e == "granted"){
-                   sus();
-               }
-           });
-       }
+    //     if(Notification.permission != "granted"){
+    //        Notification.requestPermission((e) => {
+    //            if(e == "granted"){
+    //                sus();
+    //            }
+    //        });
+    //    }
         getTeachers(user.ya).then((res) => {
             //console.log(res.data.data.getTeachers)
             const teachersData = res.data.data.getTeachers.map((item) => ({

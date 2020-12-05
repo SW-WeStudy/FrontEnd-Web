@@ -23,11 +23,11 @@ function App(props) {
   const [swReg, setswReg] = useState(0);
 
   useEffect(() => {
-    navigator.serviceWorker.register("./serviceWorker.js").then((reg) => {
-      console.log("registrado");
-        setswReg(reg);
-        reg.pushManager.getSubscription()
-    });
+    // navigator.serviceWorker.register("./serviceWorker.js").then((reg) => {
+    //   console.log("registrado");
+    //     setswReg(reg);
+    //     reg.pushManager.getSubscription()
+    // });
   });
 
   return (
