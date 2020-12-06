@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const GraphQL_URL = "http://3.140.66.179:5000/graphql"
+const GraphQL_URL = "http://40.85.191.174:5000/graphql"
 
 
 //Ya
