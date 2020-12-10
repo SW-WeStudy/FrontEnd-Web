@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useUser} from 'reactfire'
 // IP's
-const GraphQL_URL = "http://40.85.191.174:5000/graphql"
+const GraphQL_URL = "http://loadgateway-1787512249.us-east-2.elb.amazonaws.com/graphql"
 // var user = useUser();
 //URLS
 
