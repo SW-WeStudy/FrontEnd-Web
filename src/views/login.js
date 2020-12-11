@@ -9,12 +9,14 @@ import { render } from '@testing-library/react';
 import 'firebase/auth'
 import {useFirebaseApp} from 'reactfire'
 import { RegisterUser, LDAPAuthUser, LDAPCreateUser, SubscribeUser } from '../helpers';
+import Recaptcha from 'react-recaptcha';
 
 
 export default (props) =>{
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
     const [showLogin, setShowLogin] = React.useState(true)
+    const [captchaFlag, setCaptchaFlag] = React.useState(0)
 
     const history = useHistory()
     const firebase = useFirebaseApp();
@@ -60,6 +62,10 @@ export default (props) =>{
 
     const logout = async () =>{
         await firebase.auth().signOut();
+    }
+
+    function verifyCallback (){
+        setCaptchaFlag(1);
     }
 
     function getPublicKey(){
@@ -127,7 +133,12 @@ export default (props) =>{
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Contraseña"  value={passwordReg} onChange={(e) => setPasswordReg(e.target.value)}/>
+                    <Form.Control style={{marginBottom:"5%"}} type="password" placeholder="Contraseña"  value={passwordReg} onChange={(e) => setPasswordReg(e.target.value)}/>
+                    <Recaptcha 
+                            sitekey="6LclyQIaAAAAAOcy2qz8eIxg_n6YbaARFHX3TPep"
+                            render="explicit"
+                            verifyCallback={verifyCallback}
+                        />
                     <Button style={{ marginTop: "2%", width: "100%" }} variant="primary" type="submit" >
                         Registrarse
                  </Button>
@@ -138,6 +149,7 @@ export default (props) =>{
                         </Button>
                         </div>
             </Form>
+
         </Container>
             </div>
         </div>
