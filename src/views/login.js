@@ -134,14 +134,19 @@ export default (props) =>{
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control style={{marginBottom:"5%"}} type="password" placeholder="Contraseña"  value={passwordReg} onChange={(e) => setPasswordReg(e.target.value)}/>
+                    <div  style = {{marginLeft:"20%", marginBottom:"5%"}}>
                     <Recaptcha 
                             sitekey="6LclyQIaAAAAAOcy2qz8eIxg_n6YbaARFHX3TPep"
                             render="explicit"
                             verifyCallback={verifyCallback}
                         />
-                    <Button style={{ marginTop: "2%", width: "100%" }} variant="primary" type="submit" >
+                    </div>
+                    {captchaFlag == 0 && <Button disabled style={{ marginTop: "2%", width: "100%" }} variant="primary" type="submit" >
                         Registrarse
-                 </Button>
+                 </Button>}
+                 {captchaFlag == 1 && <Button style={{ marginTop: "2%", width: "100%" }} variant="primary" type="submit" >
+                        Registrarse
+                 </Button>}
                 </Form.Group>
                 <div style={{ textAlign: "center" }}>
                 <Button variant="link" onClick={() => setShowLogin(true)} >
